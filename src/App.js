@@ -1,13 +1,15 @@
-
+let abc = "abcdefghijklmnopqrstuvwxyz"
+let arrayabc = [...abc]
+console.log(arrayabc)
 
 
 function App() {
   return (
-    <>
+    <div className="corpo">
       <Jogo />
-      <Letras />
+      {arrayabc.map(letter => (<Letras letra={letter}/>))}
       <Chute />
-    </>
+    </div>
   );
 }
 
