@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+}
+.corpo {
+    width: 97%;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+
+    height: 658px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.jogo {
+    width: 100%;
+    height: 66%;
+    display: flex;
+    position: relative;
+}
+
+.forca {
+    height: 100%;
+    width: 466.67px;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.escolher {
+    width: 200px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top:30px;
+    right: 10px;
+
+    background-color: #27ae60;
+    color: #FFFFFF;
+
+    font-size: 20px;
+    border-radius: 8px;
+}
+
+.palavra {
+    width: 323px;
+    height: 68px;
+
+    font-family: "Noto Sans", sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #000000;
+
+    position: absolute;
+    right: 0px;
+    bottom: 31px;
+}
+
+.perdeu {
+    color: #FF0000
+}
+
+.ganhou {
+    color: #27AE60;
+}
+.baixo {
+    width: 664px;
+    height: 190px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 71px;
+}
+.letras {
+    width: 100%;
+    height: 91px;
+    gap: 11px 12px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.letra {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #7aac77;
+    border-radius: 3px;
+
+    background-color: #e1ecf4;
+    color: #39739D;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px;
+}
+
+.desativado {
+    color: #798A9F;
+    background-color: #9faa85;
+}
+
+.chute {
+    width: 624px;
+    height: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input {
+    width: 353px;
+    height: 40px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #CCCCCC;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+}
+.chute button{
+    width: 100px;
+    font-weight: 700;
+}
