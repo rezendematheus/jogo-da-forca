@@ -8,13 +8,16 @@ console.log(arrayabc)
 
 
 function App() {
+  const [palavra, setPalavra] = useState([])
   const [start, setStart] = useState("")
+  const [preencher, setPreencher] = useState("")
+  const [dentro, setDentro] = useState([])
   return (
     <div className="corpo">
-      <Jogo começou={setStart}/>
+      <Jogo preencher = {preencher} setPreencher ={setPreencher} start={start} setStart={setStart} palavra={palavra} setPalavra={setPalavra} />
       <div className="baixo">
         <div className="letras">
-          {arrayabc.map(letter => (<Letras letra={letter} começou={start} />))}
+          {arrayabc.map(letter => (<Letras key={letter} letra={letter} começou={start} palavra={palavra} dentro={dentro} setDentro={setDentro}/>))}
         </div>
         <Chute />
       </div>

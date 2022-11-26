@@ -52,7 +52,7 @@
 }
 
 .palavra {
-    width: 323px;
+    width: fit-content;
     height: 68px;
 
     font-family: "Noto Sans", sans-serif;
@@ -143,4 +143,7 @@ input {
 .chute button{
     width: 100px;
     font-weight: 700;
+}
+.escondido{
+    display: none;
 }

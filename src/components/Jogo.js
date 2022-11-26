@@ -10,11 +10,12 @@ const forcas = ["assets/forca0",
             ]
 
 function Jogo(props) {
-    const [preencher, setPreencher] = useState("")
+    const {preencher, setPreencher} = props
     return (
         <div className="jogo">
             <img className="forca" src="assets/forca0.png" alt="imagem da forca"/>
-            <div className="escolher" onClick={() => (comecaJogo(setPreencher, props.começou))}>Escolher Palavra</div>
+            <button disabled={(props.start ? true : false)} className={`escolher ${props.start ? "escondido" : ""}`} onClick={() => (comecaJogo(setPreencher, props.setStart, props.setPalavra))}>Escolher Palavra</button>
+
             <div className="palavra">{preencher}</div>
         </div>
 
@@ -23,13 +24,12 @@ function Jogo(props) {
 
 export default Jogo;
 
-function comecaJogo(estado, começou){
+function comecaJogo(setPreencher, setStart, setPalavra){
     let palavra = palavras[Math.floor(Math.random() * palavras.length)]
-    console.log(palavra)
     const arrayPalavra = [...palavra]
+    setPalavra(arrayPalavra)
     let preencher = arrayPalavra.map(l => ("_ "))
-    estado(preencher)
-    começou("sim")
-
-
+    setPreencher(preencher)
+    setStart("sim")
+    
 }
