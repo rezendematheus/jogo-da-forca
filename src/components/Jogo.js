@@ -1,25 +1,19 @@
 import { useState } from "react";
 import palavras from "../palavras";
-const forcas = ["assets/forca0",
-                "assets/forca1",
-                "assets/forca2",
-                "assets/forca3",
-                "assets/forca4",
-                "assets/forca5",
-                "assets/forca6"
-            ]
 
 function Jogo(props) {
-    const {preencher, setPreencher} = props
+    
+    const {preencher, setPreencher, forca} = props
+    console.log(forca)
     return (
         <div className="jogo">
-            <img className="forca" src="assets/forca0.png" alt="imagem da forca"/>
+            <img className="forca" src={forca} alt="imagem da forca"/>
             <button disabled={(props.start ? true : false)} className={`escolher ${props.start ? "escondido" : ""}`} onClick={() => (comecaJogo(setPreencher, props.setStart, props.setPalavra))}>Escolher Palavra</button>
 
             <div className="palavra">{preencher}</div>
         </div>
-
     )
+
 }
 
 export default Jogo;
