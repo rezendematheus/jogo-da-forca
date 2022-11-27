@@ -28,13 +28,14 @@ function App() {
       <Jogo preencher = {preencher} setPreencher ={setPreencher} start={start} setStart={setStart} palavra={palavra} setPalavra={setPalavra} erro={erro} setErro={setErro} forca={forca} setForca={setForca}/>
       <div className="baixo">
         <div className="letras">
-          {arrayabc.map(letter => (<Letras key={letter} letra={letter} começou={start} palavra={palavra} dentro={dentro} setDentro={setDentro} preencher={preencher} setPreencher={setPreencher} erro={erro} setErro={setErro} forca={forca} setForca={setForca}/>))}
+          {arrayabc.map(letter => (<Letras key={letter} letra={letter} começou={start} palavra={palavra} dentro={dentro} setDentro={setDentro} preencher={preencher} setPreencher={setPreencher} erro={erro} setErro={setErro} forca={forca} setForca={setForca} setStart={setStart}/>))}
         </div>
         <Chute />
       </div>
 
     </div>
-  );
+  );//
+  
 }
 
 export default App;

@@ -4,7 +4,6 @@ import palavras from "../palavras";
 function Jogo(props) {
     
     const {preencher, setPreencher, forca} = props
-    console.log(forca)
     return (
         <div className="jogo">
             <img className="forca" src={forca} alt="imagem da forca"/>

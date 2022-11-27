@@ -11,24 +11,25 @@ const forcas = ["assets/forca0.png",
 
 
 function Letras(props) {
-    const { letra, palavra, preencher, setPreencher, erro, setErro, forca, setForca} = props
+    const { letra, palavra, preencher, setPreencher, erro, setErro, setForca, setStart} = props
     const [selecionada, setSelecionada] = useState("")
-
+    const compara = preencher.toString() === palavra.toString()
+    const condicao = !(props.começou && !selecionada) || (erro>= 6 || compara)
     return (
-        <button disabled={props.começou && selecionada ? true : false} onClick={() => verificaLetra(letra, palavra, setSelecionada, preencher, setPreencher, erro, setErro, forca, setForca)} className={`letra ${!(props.começou && !selecionada) ? "desativado" : ""}`}>
+        <button disabled={props.começou && selecionada ? true : false} onClick={condicao ? () => console.log() : () => verificaLetra(letra, palavra, setSelecionada, preencher, setPreencher, erro, setErro, setForca, setStart)} className={`letra ${condicao ? "desativado" : ""}`}>
             {letra}
         </button>
     )
 }
-const verificaLetra = (letra, palavra, setSelecionada, preencher, setPreencher, erro, setErro, setForca) => {
+const verificaLetra = (letra, palavra, setSelecionada, preencher, setPreencher, erro, setErro, setForca, setStart) => {
     setSelecionada("sim")
     const novoPreencher = [...preencher]
+    console.log(palavra)
     if(palavra.includes(letra.toLowerCase())){
         for (let index = 0; index < palavra.length; index++) {
         
             if (letra.toLowerCase() === palavra[index]) {
-                novoPreencher[index] = letra.toLowerCase() + " "
-                console.log(novoPreencher)
+                novoPreencher[index] = letra.toLowerCase()
                 setPreencher(novoPreencher)
                 
             }
@@ -37,16 +38,23 @@ const verificaLetra = (letra, palavra, setSelecionada, preencher, setPreencher, 
     else{
         const novoErro = erro + 1
         setErro(novoErro)
-        console.log(novoErro)
-        atualizaForca(novoErro, setForca)
+        setForca(forcas[novoErro])
+        // verificaEstado()
     }
 
 
-    console.log(palavra, letra.toLowerCase() )
-    
+
+    // function verificaEstado(){
+    //     const compara = preencher.toString() === palavra.toString()
+    //     if(erro >= 6 || compara){
+    //       setStart("")
+    //     }
+    //     else{
+    //       console.log("executando")
+    //       console.log(preencher)
+    //       console.log(palavra)
+    //     }
+    //   }
 }
-function atualizaForca(erro, setForca){
-    setForca(forcas[erro])
-  }
 
 export default Letras;
