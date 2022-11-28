@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const forcas = ["assets/forca0.png",
                 "assets/forca1.png",
                 "assets/forca2.png",
@@ -11,18 +11,30 @@ const forcas = ["assets/forca0.png",
 
 
 function Letras(props) {
-    const { letra, palavra, preencher, setPreencher, erro, setErro, setForca, setStart} = props
-    const [selecionada, setSelecionada] = useState("")
+    const { letra, palavra, preencher, setPreencher, erro, setErro, setForca, setStart, start} = props
+    const [selecionada, setSelecionada] = useState(start)
     const compara = preencher.toString() === palavra.toString()
-    const condicao = !(props.começou && !selecionada) || (erro>= 6 || compara)
+    
+
+    
+
+    
+    useEffect(() => {
+        if (!start) {
+          setSelecionada(false);
+          console.log(selecionada)
+        }
+        console.log("useEffect called")
+      }, [selecionada]);
+      const condicao = !(props.começou && !selecionada) || (erro>= 6 || compara)
     return (
-        <button disabled={props.começou && selecionada ? true : false} onClick={condicao ? () => console.log() : () => verificaLetra(letra, palavra, setSelecionada, preencher, setPreencher, erro, setErro, setForca, setStart)} className={`letra ${condicao ? "desativado" : ""}`}>
+        <button disabled={!start ? true : false} onClick={() => verificaLetra(letra, palavra, setSelecionada, preencher, setPreencher, erro, setErro, setForca, setStart)} className={`letra ${(condicao)  ? "desativado" : ""}`}>
             {letra}
         </button>
     )
 }
 const verificaLetra = (letra, palavra, setSelecionada, preencher, setPreencher, erro, setErro, setForca, setStart) => {
-    setSelecionada("sim")
+    setSelecionada(true)
     const novoPreencher = [...preencher]
     console.log(palavra)
     if(palavra.includes(letra.toLowerCase())){
@@ -41,7 +53,6 @@ const verificaLetra = (letra, palavra, setSelecionada, preencher, setPreencher, 
         setForca(forcas[novoErro])
         // verificaEstado()
     }
-
 
 
     // function verificaEstado(){

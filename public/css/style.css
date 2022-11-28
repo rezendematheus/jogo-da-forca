@@ -49,6 +49,8 @@
     font-size: 20px;
     border-radius: 8px;
     cursor: pointer;
+
+    border: none;
 }
 
 .palavra {
@@ -120,6 +122,9 @@
     color: #798A9F;
     background-color: #9faab5;
 }
+.desativado:hover{
+    cursor: auto;
+}
 
 .chute {
     width: 624px;
@@ -146,4 +151,10 @@ input {
 }
 .escondido{
     display: none;
+}
+.verde{
+    color: #27AE60;
+}
+.vermelho{
+    color: red;
 }
