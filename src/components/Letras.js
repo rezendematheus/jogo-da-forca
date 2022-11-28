@@ -26,9 +26,11 @@ function Letras(props) {
         }
         console.log("useEffect called")
       }, [selecionada]);
+
       const condicao = !(props.começou && !selecionada) || (erro>= 6 || compara)
+
     return (
-        <button disabled={!start ? true : false} onClick={() => verificaLetra(letra, palavra, setSelecionada, preencher, setPreencher, erro, setErro, setForca, setStart)} className={`letra ${(condicao)  ? "desativado" : ""}`}>
+        <button data-test="letter" disabled={!start ? true : false} onClick={() => verificaLetra(letra, palavra, setSelecionada, preencher, setPreencher, erro, setErro, setForca, setStart)} className={`letra ${(condicao)  ? "desativado" : ""}`}>
             {letra}
         </button>
     )

@@ -4,8 +4,8 @@ function Chute(props) {
     return (
         <div className="chute">
             Já sei a palavra!
-            <input disabled={start ? false : true} value={start ? chute : ""} onChange={(event) => setChute(event.target.value)}></input>
-            <button disabled={start ? false : true} onClick={()=> chuta(chute)} className="letra">Chutar</button>
+            <input data-test="guess-input" disabled={start ? false : true} value={start ? chute : ""} onChange={(event) => setChute(event.target.value)}></input>
+            <button data-test="guess-button" disabled={start ? false : true} onClick={()=> chuta(chute)} className="letra">Chutar</button>
         </div>
     )
     function chuta(chute){

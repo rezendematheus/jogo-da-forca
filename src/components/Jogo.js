@@ -7,10 +7,10 @@ function Jogo(props) {
     const {preencher, setPreencher, forca, erro, palavra, setErro, setChute} = props
     return (
         <div className="jogo">
-            <img className="forca" src={forca} alt="imagem da forca"/>
-            <button disabled={(props.start ? true : false)} className={`escolher ${props.start ? "escondido" : ""}`} onClick={() => (comecaJogo(setPreencher, props.setStart, props.setPalavra, setErro, setChute))}>Escolher Palavra</button>
+            <img data-test="game-image" className="forca" src={forca} alt="imagem da forca"/>
+            <button data-test="choose-word" disabled={(props.start ? true : false)} className={`escolher ${props.start ? "escondido" : ""}`} onClick={() => (comecaJogo(setPreencher, props.setStart, props.setPalavra, setErro, setChute))}>Escolher Palavra</button>
 
-            <div className={`palavra ${erro>= 6 ? "vermelho" : ""} ${preencher.toString() === palavra.toString() ? "verde" : ""}`}>{(erro >= 6 ? palavra : preencher)}</div>
+            <div data-test={`word `} data-answer={`${palavra}`} className={`palavra ${erro>= 6 ? "vermelho" : ""} ${preencher.toString() === palavra.toString() ? "verde" : ""}`}>{(erro >= 6 ? palavra : preencher)}</div>
         </div>
     )
     
