@@ -15,22 +15,18 @@ function Letras(props) {
     const [selecionada, setSelecionada] = useState(start)
     const compara = preencher.toString() === palavra.toString()
     
-
-    
-
-    
     useEffect(() => {
         if (!start) {
           setSelecionada(false);
           console.log(selecionada)
         }
         console.log("useEffect called")
-      }, [selecionada]);
+      }, [start, selecionada]);
 
       const condicao = !(props.começou && !selecionada) || (erro>= 6 || compara)
 
     return (
-        <button data-test="letter" disabled={!start ? true : false} onClick={() => verificaLetra(letra, palavra, setSelecionada, preencher, setPreencher, erro, setErro, setForca, setStart)} className={`letra ${(condicao)  ? "desativado" : ""}`}>
+        <button data-test="letter" disabled={condicao ? true : false} onClick={() => verificaLetra(letra, palavra, setSelecionada, preencher, setPreencher, erro, setErro, setForca, setStart)} className={`letra ${(condicao)  ? "desativado" : ""}`}>
             {letra}
         </button>
     )
@@ -53,21 +49,7 @@ const verificaLetra = (letra, palavra, setSelecionada, preencher, setPreencher, 
         const novoErro = erro + 1
         setErro(novoErro)
         setForca(forcas[novoErro])
-        // verificaEstado()
     }
-
-
-    // function verificaEstado(){
-    //     const compara = preencher.toString() === palavra.toString()
-    //     if(erro >= 6 || compara){
-    //       setStart("")
-    //     }
-    //     else{
-    //       console.log("executando")
-    //       console.log(preencher)
-    //       console.log(palavra)
-    //     }
-    //   }
 }
 
 export default Letras;
